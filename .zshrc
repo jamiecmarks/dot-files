@@ -20,8 +20,9 @@ CASE_SENSITIVE="true"
 ENABLE_CORRECTION="true"
 
 # Some aliases that I want to use:
+alias jn-remote="jupyter lab --ip='*' --no-browser --port=8889"
 alias uni="cd ~/Documents/uni_stuff/year2/DOA"
-
+alias minty="ssh jamie@122.150.69.152"
 alias sess="source ~/Dev/intermediate-projects/4-Calender-Coding-Automation/cal-venv/bin/activate
 python3 ~/Dev/intermediate-projects/4-Calender-Coding-Automation/cal-auto.py"
 
@@ -34,6 +35,15 @@ alias vim=nvim
 
 alias vimhelp="open -a Safari https://vim.rtorr.com/"
 
+
+server-connect() {
+    ssh jamie@122.150.69.152 -p 22 
+}
+jn-connect() {
+    ssh -N -L localhost:8888:localhost:8889 jamie@122.150.69.152 -p 22222
+}
+
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -41,13 +51,13 @@ alias vimhelp="open -a Safari https://vim.rtorr.com/"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -70,7 +80,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,6 +124,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
+# zoxide the better cd
 eval "$(zoxide init --cmd cd zsh)" # for zoxide
+
+# eza the better ls
+#alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+
+# thefuck
+eval $(thefuck --alias fk)
 

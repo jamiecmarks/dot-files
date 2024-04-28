@@ -1,0 +1,11 @@
+[font]
+size = 14.0
+
+[font.normal]
+#family = "Monaspace Neon"
+family = "SFMono Nerd Font"
+style = "Regular"
+
+[window]
+dynamic_padding = false
+opacity = 0.91

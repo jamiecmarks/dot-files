@@ -1,0 +1,14 @@
+window:
+  opacity: 0.85
+  padding:
+    x:18
+    y:16
+  dynamic_padding: false
+
+
+font:
+  normal:
+    family: "SFMono Nerd Font"
+    style: regular
+  size: 22.0
+
